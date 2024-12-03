@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitol University LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .header .left-side {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .header .language {
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .user-profile span {
+            margin-right: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .logout-menu {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .logout-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-grow: 1;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            width: 240px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            border-radius: 8px;
+            font-size: 12px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 5px 10px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #f4f4f4;
+            color: #007BFF;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007BFF;
+        }
+
+        .library-input {
+            margin-top: 30px;
+        }
+
+        .library-input input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .info-box {
+            width: 30%;
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            float: left;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .content {
+            margin-left: 260px;
+            flex-grow: 1;
+            padding-top: 20px;
+        }
+
+        .info-box.profile-box, .info-box.course-overview, .info-box.assignments, .info-box.prelim-grades {
+            width: 70%;
+            margin-left: 20px;
+        }
+
+        .info-box.profile-box {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="left-side">
+            <img src="cu logo.png" alt="CU Logo">
+            <div class="logo">Capitol University</div>
+        </div>
+        <div class="language">ENGLISH (EN) ▼</div>
+        <div class="user-profile" id="userProfile">
+            <span>Ava Sinclair</span>
+            <div class="user-icon"></div>
+            <div class="logout-menu" id="logoutMenu">
+                <a href="first.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>DASHBOARD</h2>
+            <ul>
+                <li>&ensp; Site Home <span class="arrow">▼</span></li>
+                <li><a href="courses.html"> &ensp; My Courses <span class="arrow">▼</span></a></li>
+                <li> &ensp; Assignments <span class="arrow">▼</span></li>
+                <li> &ensp; Grades <span class="arrow">▼</span></li>
+                <li> &ensp; Class Discussions <span class="arrow">▼</span></li>
+                <li> &ensp; Study Materials <span class="arrow">▼</span></li>
+                <li> &ensp; Schedule <span class="arrow">▼</span></li>
+            </ul>
+
+            <div class="library-input">
+                <h3>CU E-Library</h3>
+                <input type="text" placeholder="Search library">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="info-box profile-box">
+                <h3>Ava Sinclair</h3>
+                <p>&emsp;2083497</p>
+                <p>&emsp;BSIT-1 Block A</p>
+            </div>
+
+            <div class="info-box course-overview">
+                <h3>Course Overview</h3>
+                <h4>Timeline</h4>
+                <p> &ensp; Today: Discussion Session - Program Logic Formulation (25 Oct, 19:30)</p>
+                <p> &ensp; Next 7 Days: Online Class - Science Technology and Society (27 Oct, 15:30)</p>
+            </div>
+
+            <div class="info-box assignments">
+                <h3>Assignments</h3>
+                <p>&ensp;Assignment 1 EN 8 - Due 26 Oct</p>
+                <p>&ensp;Project 1 IT 35 - Due 08 Nov</p>
+            </div>
+
+            <div class="info-box prelim-grades">
+                <h3>Prelim Grades</h3>
+                <p>GEC 108: 1.25</p>
+                <p>IT 45: 1.5</p>
+                <p>EN 37: 1.25</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Capitol University. All rights reserved.
+    </div>
+
+    <script>
+        const userProfile = document.getElementById('userProfile');
+        const logoutMenu = document.getElementById('logoutMenu');
+
+        userProfile.addEventListener('click', () => {
+            logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!userProfile.contains(event.target)) {
+                logoutMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

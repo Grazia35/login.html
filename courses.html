@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitol University LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .header .left-side {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .header .language {
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .user-profile span {
+            margin-right: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .logout-menu {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .logout-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-grow: 1;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            width: 240px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            border-radius: 8px;
+            font-size: 12px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 5px 10px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #f4f4f4;
+            color: #007BFF;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007BFF;
+        }
+
+        .library-input {
+            margin-top: 30px;
+        }
+
+        .library-input input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .class-info-box {
+            width: 70%;
+            background-color: white;
+            padding: 20px;
+            margin-left: 300px;
+            margin-right: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .class-info-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .class-info-box table th,
+        .class-info-box table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .class-info-box table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="left-side">
+            <img src="cu logo.png" alt="CU Logo">
+            <div class="logo">Capitol University</div>
+        </div>
+        <div class="language">ENGLISH (EN) ▼</div>
+        <div class="user-profile" id="userProfile">
+            <span>Ava Sinclair</span>
+            <div class="user-icon"></div>
+            <div class="logout-menu" id="logoutMenu">
+                <a href="first.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>DASHBOARD</h2>
+            <ul>
+                <li><a href="dashboard.html">  &ensp; Site Home <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; My Courses <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; Assignments <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; Grades <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; Class Discussions <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; Study Materials <span class="arrow">▼</span></a></li>
+                <li><a href="#">  &ensp; Schedule <span class="arrow">▼</span></a></li>
+            </ul>
+
+            <div class="library-input">
+                <h3>CU E-Library</h3>
+                <input type="text" placeholder="Search library">
+            </div>
+        </div>
+
+        <div class="class-info-box">
+            <h3>Class Information</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Section Code</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Units</th>
+                        <th>Time</th>
+                        <th>Day</th>
+                        <th>Room</th>
+                        <th>Block Code</th>
+                        <th>Instructor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GEC 3</td>
+                        <td>EN 8</td>
+                        <td>Science Technology and Society</td>
+                        <td>2</td>
+                        <td>10:00AM-12:00PM</td>
+                        <td>W</td>
+                        <td>341</td>
+                        <td>2B</td>
+                        <td>Christian Duarte</td>
+                    </tr>
+                    <tr>
+                        <td>IT 35</td>
+                        <td>IT 103</td>
+                        <td>Program Logic Formula</td>
+                        <td>1</td>
+                        <td>09:30AM-10:30AM</td>
+                        <td>F</td>
+                        <td>323</td>
+                        <td>1A</td>
+                        <td>Jade Gamboa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Capitol University. All rights reserved.
+    </div>
+     <script>
+        const userProfile = document.getElementById('userProfile');
+        const logoutMenu = document.getElementById('logoutMenu');
+
+        userProfile.addEventListener('click', () => {
+            logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!userProfile.contains(event.target)) {
+                logoutMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
